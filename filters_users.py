@@ -15,7 +15,9 @@ def filter_users_by_name(name):
     name = name.strip().lower()
     users = load_users()
 
-    filtered_users = [user for user in users if user["name"].lower() == name.lower().strip()]
+    filtered_users = [
+        user for user in users if user["name"].lower() == name.lower().strip()
+    ]
 
     if not filtered_users:
         print("no users found with that name")
@@ -39,6 +41,7 @@ def filter_user_by_age(age):
     for user in filtered_by_age:
         print(user)
 
+
 def filter_by_email(email):
     users = load_users()
     email = email.strip().lower()
@@ -52,7 +55,9 @@ def filter_by_email(email):
 
 
 if __name__ == "__main__":
-    filter_option = input("What would you like to filter by? (age/name/email): ").strip().lower()
+    filter_option = (
+        input("What would you like to filter by? (age/name/email): ").strip().lower()
+    )
 
     if filter_option == "name":
         name_to_search = input("Enter a name to filter users: ").strip()
@@ -66,4 +71,3 @@ if __name__ == "__main__":
         filter_by_email(email_to_search)
     else:
         print("Filtering by that option is not yet supported.")
-
